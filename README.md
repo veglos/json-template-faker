@@ -32,11 +32,21 @@ Create a template file (e.g., `template.jtf`):
 
 ```jtf
 {
-  "user": {
-    "name": @person.firstName,
-    "email": @internet.email,
-    "age": @number.int(18, 65)
-  }
+  "company": "Acme Corp",
+  "users": [
+    {
+      "profile": {
+        "name": @person.firstName,
+        "email": @internet.email,
+        "age": @number.int(18, 65)
+      },
+      "status": "active",
+      "permissions": {
+        "role": "user",
+        "level": @number.int(1, 5)
+      }
+    }
+  ] @repeat(3)
 }
 ```
 
@@ -51,6 +61,52 @@ node main.js -i template.jtf -o result.json
 
 # Or with long options
 node main.js --input template.jtf --output result.json
+```
+
+**Example Output:**
+
+```json
+{
+  "company": "Acme Corp",
+  "users": [
+    {
+      "profile": {
+        "name": "Arjun",
+        "email": "Ken_Cassin55@yahoo.com",
+        "age": 39
+      },
+      "status": "active",
+      "permissions": {
+        "role": "user",
+        "level": 2
+      }
+    },
+    {
+      "profile": {
+        "name": "Elwyn",
+        "email": "Edmund62@hotmail.com",
+        "age": 43
+      },
+      "status": "active",
+      "permissions": {
+        "role": "user",
+        "level": 1
+      }
+    },
+    {
+      "profile": {
+        "name": "Alisa",
+        "email": "Adrain26@yahoo.com",
+        "age": 21
+      },
+      "status": "active",
+      "permissions": {
+        "role": "user",
+        "level": 1
+      }
+    }
+  ]
+}
 ```
 
 ### File Extension (.jtf)
@@ -70,15 +126,26 @@ The project includes VS Code configuration for `.jtf` files. See [JTF_FORMAT.md]
 const { parse } = require('json-template-faker');
 
 const template = `{
-  "user": {
-    "name": @person.firstName,
-    "email": @internet.email,
-    "age": @number.int(18, 65)
-  }
+  "company": "Acme Corp",
+  "users": [
+    {
+      "profile": {
+        "name": @person.firstName,
+        "email": @internet.email,
+        "age": @number.int(18, 65)
+      },
+      "status": "active",
+      "permissions": {
+        "role": "user",
+        "level": @number.int(1, 5)
+      }
+    }
+  ] @repeat(3)
 }`;
 
 const result = parse(template);
 console.log(result);
+// Output: Nested object with company info and array of 3 user objects
 ```
 
 ## Template Syntax
