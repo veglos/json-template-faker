@@ -1,6 +1,6 @@
 {
   "name": "json-template-faker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JSON template parser that generates fake data using faker.js",
   "main": "main.js",
   "bin": {
