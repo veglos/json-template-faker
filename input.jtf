@@ -1,0 +1,53 @@
+[
+    {
+        "user": {
+            "name": @person.firstName,
+            "last_name": @person.lastName,
+            "full_name": @person.firstName + " " + @person.lastName,
+            "age": @number.int(18, 100),
+            "email": @internet.email,
+            "address": {
+                "street": @location.street,
+                "city": @location.city,
+                "state": @location.state,
+                "zip": @location.zipCode
+            },
+            "alternative_profiles": [
+                {
+                    "username": @internet.username,
+                    "website": "https://" + @internet.domainWord + ".com",
+                    "description": {
+                        "text": @lorem.sentence,
+                        "image": "https://" + @internet.domainWord + ".com/" + @internet.username + "/" + @string.uuid + ".jpg"
+                    }
+                }
+            ] @repeat(2),
+            "static_info": {
+                "favorite_color": "blue",
+                "favorite_number": 10,
+                "favorite_animal": "dog",
+                "favorite_food": "pizza",
+                "favorite_movie": "The Matrix",
+                "favorite_book": "The Great Gatsby",
+                "favorite_song": "Bohemian Rhapsody"
+            }
+        },
+        "cart": {
+            "total_price": @commerce.price,
+            "total_quantity": @number.int(1, 10),
+            "products": [
+                {
+                    "name": @commerce.productName,
+                    "price": @commerce.price,
+                    "quantity": @number.int(1, 10)
+                }
+            ] @repeat(3)
+        },
+        "lucky_numbers": [
+            14,
+            @number.int(1, 100),
+            37,
+            42
+        ]
+    }
+] @repeat(2)

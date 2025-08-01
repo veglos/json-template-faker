@@ -1,0 +1,59 @@
+{
+  "name": "json-template-faker",
+  "version": "1.0.0",
+  "description": "A JSON template parser that generates fake data using faker.js",
+  "main": "main.js",
+  "bin": {
+    "json-template-faker": "./main.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "json",
+    "template",
+    "faker",
+    "mock",
+    "data",
+    "generator",
+    "fake",
+    "cli",
+    "npm"
+  ],
+  "author": "Carlos \"Veglos\" Vega",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veglos/json-template-faker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veglos/json-template-faker/issues"
+  },
+  "homepage": "https://github.com/veglos/json-template-faker#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "main.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "main.js"
+    ]
+  }
+}
