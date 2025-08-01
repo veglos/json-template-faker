@@ -148,6 +148,27 @@ console.log(result);
 // Output: Nested object with company info and array of 3 user objects
 ```
 
+## API Reference
+
+### `parse(templateString)`
+
+Parses a template string and returns the generated object with fake data.
+
+**Parameters:**
+- `templateString` (string): JSON template string with faker variables
+
+**Returns:**
+- Object or Array with generated fake data
+
+**Example:**
+```javascript
+const { parse } = require('json-template-faker');
+
+const template = '{"name": @person.firstName, "age": @number.int(18, 100)}';
+const result = parse(template);
+// { name: "John", age: 25 }
+```
+
 ## Template Syntax
 
 ### Basic Faker Methods
@@ -268,27 +289,6 @@ Examples:
   json-template-faker
   json-template-faker -i template.json -o result.json
   json-template-faker --input my-template.json --output my-output.json
-```
-
-## API Reference
-
-### `parse(templateString)`
-
-Parses a template string and returns the generated object with fake data.
-
-**Parameters:**
-- `templateString` (string): JSON template string with faker variables
-
-**Returns:**
-- Object or Array with generated fake data
-
-**Example:**
-```javascript
-const { parse } = require('json-template-faker');
-
-const template = '{"name": @person.firstName, "age": @number.int(18, 100)}';
-const result = parse(template);
-// { name: "John", age: 25 }
 ```
 
 ## Examples
